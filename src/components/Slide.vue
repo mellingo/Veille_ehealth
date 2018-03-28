@@ -1,50 +1,83 @@
 <template>
-  <transition name="slide-fade">
-    <div class="slide" v-if="show" draggable="true" @dragstart="startX = $event.x" @dragend="dragEnding" :id="id">
-      {{ slideContent.title }}
-      {{ slideContent.tags }}
-      {{ slideContent.description }}
+  <div class="VueCarousel-slide">
+    <div class="slide_container">
+      <div class="slide_inner">
+        <span class="slide_date">{{content.date | formatDate}}</span>
+        <p class="slide_description">{{content.description}}</p>
+        <a :href="content.link" class="slide_title">{{content.title}}</a>
+        <ul class="slide_tags">
+          <li v-for="tag in content.tags">{{tag}}</li>
+        </ul>
+      </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
-export default {
-  props: ['slideContent', 'show', 'id'],
-  name: 'Slide',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-      startX: 0
-    }
-  },
-  methods: {
-    dragEnding(event) {
-      if (event.x > this.startX) { //go back in time
-        if (this.id !== 0) {
-          this.$emit("moveTo", this.id-1);
-        }
-      } else if (event.x < this.startX) { //go further in time
-        this.$emit("moveTo", this.id+1);
-      } else { //do nothing
-        console.log("same")
+  export default {
+    name: "slide",
+    props: ["content"],
+    data() {
+      return {
+        width: null
+      };
+    },
+    mounted() {
+      if (!this.$isServer) {
+        this.$el.addEventListener("dragstart", e => e.preventDefault());
+      }
+    },
+    filters: {
+      formatDate(date) {
+        return date.getDate() + "/" + (date.getMonth()+1)
       }
     }
-  }
-}
+  };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .slide {
-    height: 100vh;
-    width: 100vw;
-    background-color: cornflowerblue;
+<style>
+  .VueCarousel-slide {
+    flex-basis: inherit;
+    flex-grow: 0;
+    flex-shrink: 0;
+    user-select: none;
+    backface-visibility: hidden;
+    -webkit-touch-callout: none;
+    color: white;
   }
-
-  .slide-fade-enter, .slide-fade-leave-to
-    /* .slide-fade-leave-active below version 2.1.8 */ {
-    transform: translateX(10px);
-    opacity: 0;
+  .slide_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .slide_inner {
+    width: 50%;
+    height: 60vh;
+  }
+  .slide_title {
+    text-decoration: none;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 2em;
+    color: white;
+    display: block;
+    margin: 10px;
+  }
+  .slide_date {
+    color: darkgray;
+    opacity: .8;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 4em;
+  }
+  .slide_description {
+    max-width: 30%;
+    text-align: left;
+  }
+  .slide_tags>li {
+    display: inline-block;
+    margin: 0 10px;
+    font-style: italic;
   }
 </style>
