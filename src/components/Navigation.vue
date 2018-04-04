@@ -16,11 +16,11 @@
           :style="`
             width: ${parentContainer.paginationSize}px;
             height: ${parentContainer.paginationSize}px;
-            color: ${(page.month === parentContainer.currentMonth) ? 'cornflowerblue' : 'midnightblue'};
+            color: ${(page.month === parentContainer.currentMonth) ? 'white' : 'transparent'};
           `"
         >
+          <div class="horizontal-line" :style="`width: ${(page.month === parentContainer.currentMonth) ? '70px' : '50px'};`"></div>
           {{page.name}}
-          <div class="vertical-line"></div>
         </div>
       </div>
     </div>
@@ -45,32 +45,23 @@
 
 <style scoped>
   .VueCarousel-navigation {
-    width: 100%;
-    text-align: center;
     position: absolute;
-    bottom: 0;
+    left: 0;
+    top: 20%;
+    z-index: 10;
   }
 
   .VueCarousel-dot-container {
-    display: inline-block;
+    display: block;
     margin: 0 auto;
   }
 
   .VueCarousel-dot {
-    float: left;
     cursor: pointer;
-  }
-
-  .vertical-line {
-    width: 2px;
-    height: 100px;
-    background-color: cornflowerblue;
   }
 
   .VueCarousel-dot-inner {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
 
@@ -78,7 +69,10 @@
     color: white;
   }
 
-  .VueCarousel-dot-inner:hover>.vertical-line {
+  .horizontal-line {
+    height: 3px;
+    width: 50px;
     background-color: white;
+    margin-right: 5px;
   }
 </style>

@@ -1,10 +1,10 @@
 <template>
     <div class="page_container">
+      <navigation @navigationclick="changePage($event)"></navigation>
       <carousel ref="carousel" :perPage="1" class="carousel" :paginationEnabled="false" :navigateTo="currentPage">
         <slide v-for="slide in slides" :content="slide">
         </slide>
       </carousel>
-      <navigation @navigationclick="changePage($event)"></navigation>
     </div>
 </template>
 
@@ -83,7 +83,6 @@ export default {
 
   .carousel {
     width: 100vw;
-    height: 60vh;
+    height: 100vh;
   }
-
 </style>

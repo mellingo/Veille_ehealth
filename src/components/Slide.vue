@@ -2,12 +2,13 @@
   <div class="VueCarousel-slide">
     <div class="slide_container">
       <div class="slide_inner">
-        <span class="slide_date">{{content.date | formatDate}}</span>
-        <p class="slide_description">{{content.description}}</p>
-        <a :href="content.link" class="slide_title">{{content.title}}</a>
-        <ul class="slide_tags">
-          <li v-for="tag in content.tags">{{tag}}</li>
-        </ul>
+        <div class="slide_inner_up">
+          <img src="../assets/test.png" alt="test" height="80%"/>
+        </div>
+        <div class="slide_inner_down">
+          <a :href="content.link" class="slide_title">{{content.title}}</a>
+          <p class="slide_description">{{content.description}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -52,8 +53,23 @@
     align-items: center;
   }
   .slide_inner {
-    width: 50%;
+    width: 100%;
+  }
+  .slide_inner_up {
     height: 60vh;
+    background-color: #5FB195;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .slide_inner_up>img {
+
+  }
+  .slide_inner_down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40vh;
   }
   .slide_title {
     text-decoration: none;
@@ -64,16 +80,10 @@
     display: block;
     margin: 10px;
   }
-  .slide_date {
-    color: darkgray;
-    opacity: .8;
-    font-weight: bolder;
-    text-transform: uppercase;
-    font-size: 4em;
-  }
   .slide_description {
+    display: block;
     max-width: 30%;
-    text-align: left;
+    text-align: justify;
   }
   .slide_tags>li {
     display: inline-block;
