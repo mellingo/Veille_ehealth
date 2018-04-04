@@ -3,9 +3,9 @@
     <div class="VueCarousel-dot-container">
       <div
         class="VueCarousel-dot"
-        v-bind:class="{ 'VueCarousel-dot--active': (page.month === parentContainer.currentMonth) }"
-        v-for="page in parentContainer.indexForMonths"
-        v-on:click="goToPage(page.index)"
+        v-bind:class="{ 'VueCarousel-dot--active': (page === parentContainer.currentPage) }"
+        v-for="page in parentContainer.slides"
+        v-on:click="goToPage(page)"
         :style="`
           margin-top: ${parentContainer.paginationPadding * 2}px;
           padding: ${parentContainer.paginationPadding}px;
@@ -16,11 +16,11 @@
           :style="`
             width: ${parentContainer.paginationSize}px;
             height: ${parentContainer.paginationSize}px;
-            color: ${(page.month === parentContainer.currentMonth) ? 'white' : 'transparent'};
+            color: ${(page === parentContainer.currentMonth) ? 'white' : 'transparent'};
           `"
         >
-          <div class="horizontal-line" :style="`width: ${(page.month === parentContainer.currentMonth) ? '70px' : '50px'};`"></div>
-          {{page.name}}
+          <div class="horizontal-line" :style="`width: ${(page === parentContainer.currentMonth) ? '70px' : '50px'};`"></div>
+          {{page}}
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
 
 <style scoped>
   .VueCarousel-navigation {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 20%;
     z-index: 10;

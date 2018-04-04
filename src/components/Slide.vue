@@ -56,7 +56,7 @@
     width: 100%;
   }
   .slide_inner_up {
-    height: 60vh;
+    height: 55vh;
     background-color: #5FB195;
     display: flex;
     justify-content: center;
@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 40vh;
+    height: 35vh;
   }
   .slide_title {
     text-decoration: none;

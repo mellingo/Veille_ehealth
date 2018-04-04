@@ -1,22 +1,20 @@
 <template>
-    <div class="page_container">
-      <navigation @navigationclick="changePage($event)"></navigation>
-      <carousel ref="carousel" :perPage="1" class="carousel" :paginationEnabled="false" :navigateTo="currentPage">
-        <slide v-for="slide in slides" :content="slide">
+      <carousel ref="carousel" :perPage="1" class="carousel" :navigateTo="currentPage" paginationColor="grey" paginationActiveColor="white">
+        <slide v-for="slide in slides" :content="slide" :key="slide.title">
         </slide>
+        <navigation @navigationclick="changePage"></navigation>
       </carousel>
-    </div>
 </template>
 
 <script>
-import slidesData from '@/assets/data';
-import { Carousel } from 'vue-carousel';
-import Navigation from "@/components/Navigation.vue";
+import { Carousel} from 'vue-carousel';
+import Navigation from '@/components/Navigation.vue';
 import Slide from "@/components/Slide.vue";
 import {isNumber, uniq} from 'lodash';
 
 export default {
-  name: 'Slider',
+  name: "slider",
+  props: ["slides"],
   components: {
     Slide,
     Carousel,
@@ -24,15 +22,11 @@ export default {
   },
   data () {
     return {
-      slides: slidesData.map(slide => Object.assign({}, slide, {date: new Date(slide.date)})).sort( (slideA, slideB) => slideA.date - slideB.date),
-      currentPage: 0,
-      currentMonth: 0,
-      months: [],
-      monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      currentPage: 0
     }
   },
   computed: {
-    indexForMonths() {
+    /*indexForMonths() {
       this.months = uniq(this.slides.map(slide => slide.date.getMonth()));
       return this.months.map(
         month => {
@@ -43,10 +37,9 @@ export default {
           }
         }
       )
-    }
+    }*/
   },
   mounted () {
-    this.currentMonth = this.slides[0].date.getMonth()+1;
     this.$watch(
       () => {
         return this.$refs.carousel.offset
@@ -58,14 +51,7 @@ export default {
   },
   methods: {
     changePage(item) {
-      if (isNumber(item)) {
-        this.currentMonth = this.slides[item].date.getMonth()+1;
-        return this.currentPage = item;
-      }
-      //this.currentPage = 2;
-    },
-    monthName(month) {
-      return this.monthNames[month];
+      return this.currentPage = item;
     }
   }
 }
@@ -73,13 +59,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .page_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
 
   .carousel {
     width: 100vw;

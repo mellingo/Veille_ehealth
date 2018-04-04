@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Slider from '@/components/Slider'
+import SliderContainer from '@/components/SliderContainer'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Slider',
-      component: Slider
+      name: 'SliderContainer',
+      component: SliderContainer
     }
   ]
 })
