@@ -1,5 +1,5 @@
 <template>
-      <carousel ref="carousel" :perPage="1" class="carousel" :navigateTo="currentPage" paginationColor="grey" paginationActiveColor="white">
+      <carousel ref="carousel" :perPage="1" class="carousel" :navigateTo="currentPage" paginationColor="grey" paginationActiveColor="white" :speed="speed">
         <slide v-for="slide in slides" :content="slide" :key="slide.title">
         </slide>
         <navigation @navigationclick="changePage"></navigation>
@@ -22,22 +22,9 @@ export default {
   },
   data () {
     return {
-      currentPage: 0
+      currentPage: 0,
+      speed: 500
     }
-  },
-  computed: {
-    /*indexForMonths() {
-      this.months = uniq(this.slides.map(slide => slide.date.getMonth()));
-      return this.months.map(
-        month => {
-          return {
-            name: this.monthName(month),
-            index: this.slides.findIndex(slide => slide.date.getMonth() === month),
-            month: month+1
-          }
-        }
-      )
-    }*/
   },
   mounted () {
     this.$watch(
@@ -51,7 +38,7 @@ export default {
   },
   methods: {
     changePage(item) {
-      return this.currentPage = item;
+      setTimeout(()=> {this.currentPage = item}, 500);
     }
   }
 }
