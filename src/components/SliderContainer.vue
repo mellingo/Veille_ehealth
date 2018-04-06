@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul id="menu">
-      <li v-for="item in options.anchors" :data-menuanchor="'#'+item" :class="{'currentMonth':currentMonth==='#'+item}"><a :href="'#'+item">
+      <li v-for="item in options.anchors" :data-menuanchor="'#'+item" :class="{'currentMonth':currentMonth===`#${item}`}"><a :href="`#${item}`">
         <div class="horizontal-line"></div>
         <div>{{item}}</div></a></li>
     </ul>
@@ -16,7 +16,7 @@
 <script>
   import slidesData from '@/assets/data';
   import Slider from '@/components/Slider.vue'
-  import {isNumber, uniq, throttle} from 'lodash';
+  import {isNumber, uniq, throttle, isEmpty} from 'lodash';
   import FullPage from 'vue-fullpage.js/src/FullPage.vue';
 
   export default {
@@ -68,6 +68,9 @@
     mounted () {
       this.options.anchors = uniq(this.slides.map(slide => slide.date.getMonth())).map(month => this.monthNames[month]);
       this.options.sectionsColor = uniq(this.slides.map(slide => slide.date.getMonth())).map(month => "midnightblue");
+      if (isEmpty(this.$route.hash)){
+        location.hash = `#${this.options.anchors[0]}`
+      }
     }
   }
 </script>
