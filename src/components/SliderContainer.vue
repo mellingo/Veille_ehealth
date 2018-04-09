@@ -60,9 +60,13 @@
         wrapper.style.transform = `translate3d(0px,-${factor*heightNumber}px,0px)`;
       },
       initSliders() {
-        for(let i = 0; i < this.$refs.slider.length; i++) {
-          this.$refs.slider[i].changePage(0);
-        }
+        setTimeout(()=> {
+          let sliders = this.$refs.slider;
+          for(let i=0; i < sliders.length; i++) {
+            sliders[i].$refs.carousel.currentPage = 0;
+            sliders[i].$refs.carousel.offset = 0;
+          }
+        }, 500);
       }
     },
     mounted () {

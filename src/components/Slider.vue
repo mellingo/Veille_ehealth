@@ -1,5 +1,5 @@
 <template>
-      <carousel ref="carousel" :perPage="1" class="carousel" :navigateTo="currentPage" paginationColor="grey" paginationActiveColor="white" :speed="speed">
+      <carousel ref="carousel" :perPage="1" class="carousel" paginationColor="grey" paginationActiveColor="white" :speed="speed">
         <slide v-for="slide in slides" :content="slide" :key="slide.title">
         </slide>
         <navigation @navigationclick="changePage"></navigation>
@@ -22,23 +22,7 @@ export default {
   },
   data () {
     return {
-      currentPage: 0,
       speed: 500
-    }
-  },
-  mounted () {
-    this.$watch(
-      () => {
-        return this.$refs.carousel.offset
-      },
-      () => { //change page after drag
-        this.changePage(this.$refs.carousel.offset/this.$refs.carousel.slideWidth)
-      }
-    )
-  },
-  methods: {
-    changePage(item) {
-      setTimeout(()=> {this.currentPage = item}, 500);
     }
   }
 }

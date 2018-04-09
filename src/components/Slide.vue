@@ -27,11 +27,6 @@
       if (!this.$isServer) {
         this.$el.addEventListener("dragstart", e => e.preventDefault());
       }
-    },
-    filters: {
-      formatDate(date) {
-        return date.getDate() + "/" + (date.getMonth()+1)
-      }
     }
   };
 </script>
