@@ -3,7 +3,7 @@
     <div class="slide_container">
       <div class="slide_inner">
         <div class="slide_inner_up">
-          <img src="../assets/test.png" alt="test" height="80%"/>
+          <img :src="content.image" alt="test" height="80%"/>
         </div>
         <div class="slide_inner_down">
           <a :href="content.link" class="slide_title">{{content.title}}</a>
