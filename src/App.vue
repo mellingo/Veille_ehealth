@@ -2,12 +2,15 @@
   <div id="app">
     <!--<img src="./assets/logo.png">-->
     <router-view/>
+    <pop-up></pop-up>
   </div>
 </template>
 
 <script>
+  import PopUp from './components/PopUp.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { PopUp }
 }
 </script>
 
