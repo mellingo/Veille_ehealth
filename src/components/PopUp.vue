@@ -28,10 +28,11 @@
                 </div>
             </div>
         </transition>
-            <i class="fas fa-list icon btn"
-               @click="active = !active"
-               v-if="!startText">
-            </i>
+            <div @click="active = !active">
+                <i class="fas fa-list icon btn"
+                   v-if="!startText">
+                </i>
+            </div>
     </div>
 </template>
 
