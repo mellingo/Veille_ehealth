@@ -17,21 +17,22 @@
                         </div>
                     </div>
                     <transition name="fade">
-                        <div @click="active = !active" v-show="!startText">
-                            <img class="icon btn" src="../../static/images/Picto_dossier.png" v-if="!active"/>
-                            <div v-if="active">
-                              <i class="fas fa-times icon btn"></i>
-                            </div>
+                      <div v-if="startText">
+                        <p class="white container-spaced"><span class="title container-spaced">Welcome! Does connected health interest you? Are you wondering what the doctor or hospital of tomorrow will look like? This is a website for you that recents the innovations of today!</span><br>During 2017-2018, some diseases benefit from more active research and innovative solutions to assist the patient. Researchers are very insterested in Diabetes and patient’s datas. Today, there are few significant innovations in the field of connected health. However, small revolutions are at work on a daily basis to improve the patient's life. This period of discovery is promising and should intensify in the future. The creation of a university health degree at Paris Diderot has already opened and promises a bright future for connected health !</p>
+                        <div class="s-btn" @click="closeStartText">
+                        <i class="fas fa-chevron-right icon"></i>
                         </div>
+                      </div>
                     </transition>
                 </div>
             </div>
         </transition>
-            <div @click="active = !active">
-                <i class="fas fa-list icon btn"
-                   v-if="!startText">
-                </i>
+          <div @click="active = !active" v-show="!startText">
+            <img class="icon btn" src="../../static/images/Picto_dossier.png" v-if="!active"/>
+            <div v-if="active">
+              <i class="fas fa-times icon btn"></i>
             </div>
+          </div>
     </div>
 </template>
 
