@@ -67,6 +67,7 @@
     height: 35vh;
   }
   .slide_title {
+    font-family: folk, sans-serif;
     text-decoration: none;
     font-weight: bolder;
     text-transform: uppercase;
