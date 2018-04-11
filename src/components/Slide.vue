@@ -74,7 +74,7 @@
     font-size: 2em;
     color: white;
     display: block;
-    margin: 10px;
+    margin: 26px 0 20px;
   }
   .slide_description {
     display: block;

@@ -2,7 +2,7 @@
       <carousel ref="carousel" :perPage="1" class="carousel" paginationColor="grey" paginationActiveColor="white" :speed="speed">
         <slide v-for="slide in slides" :content="slide" :key="slide.title">
         </slide>
-        <navigation @navigationclick="changePage"></navigation>
+        <navigation></navigation>
       </carousel>
 </template>
 

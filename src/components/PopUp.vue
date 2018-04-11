@@ -17,11 +17,10 @@
                         </div>
                     </div>
                     <transition name="fade">
-                        <div v-if="startText">
-                            <p class="white"><span class="folk">Welcome! Does connected health interest you? Are you wondering what the doctor or hospital of tomorrow will look like? This is a website for you that recents the innovations of today!</span><br>During 2017-2018, some diseases benefit from more active research and innovative solutions to assist the patient. Researchers are very insterested in Diabetes and patient’s datas. Today, there are few significant innovations in the field of connected health. However, small revolutions are at work on a daily basis to improve the patient's life. This period of discovery is promising and should intensify in the future. The creation of a university health degree at Paris Diderot has already opened and promises a bright future for connected health !</p>
-                            <div class="s-btn"
-                                 @click="closeStartText">
-                                <i class="fas fa-chevron-right icon"></i>
+                        <div @click="active = !active" v-show="!startText">
+                            <img class="icon btn" src="../../static/images/Picto_dossier.png" v-if="!active"/>
+                            <div v-if="active">
+                              <i class="fas fa-times icon btn"></i>
                             </div>
                         </div>
                     </transition>
@@ -73,8 +72,8 @@
         return monthNames[index]
       },
       closeStartText () {
-        this.startText = !this.startText
-        this.active = !this.active
+        this.startText = !this.startText;
+        this.active = !this.active;
       }
     }
   }
@@ -156,15 +155,20 @@
         padding: 25px 6px 5px 6px;
         font-family: folk, sans-serif;
     }
-    .folk {
+    .title {
         font-family: folk, sans-serif;
+        font-size: 24px;
+    }
+    .container-spaced {
+      display: inline-block;
+      margin-bottom: 24px;
     }
     .s-btn {
         display: flex;
         justify-content: center;
         align-items: center;
         align-content: center;
-        margin: 20px auto 0 auto;
+        margin: 24px auto 0 auto;
         width: 40px;
         height: 40px;
         font-size: 24px;
