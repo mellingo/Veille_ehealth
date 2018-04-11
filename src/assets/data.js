@@ -32,14 +32,14 @@ export default [
     description: "\"This app by Isightin gathers the behavior of all its users in order to advise the most likely steps to take in order to care for your health...\"",
     date: "2017-09-26",
     link: "http://www.mobihealthnews.com/content/insightin-launches-ai-powered-patient-facing-healthcare-decision-app",
-    image: "/static/images/AmeliorationDuService_DEV.png"
+    image: "/static/images/diagnostic.png"
   },
   {
     title: "Cardiovascular Self-test",
     description: "\"NHS adds yet another service to their remote services : a cardiovascular self-test that transfers its results via Bluetooth, web portal or phone call...\"",
     date: "2017-09-26",
     link: "http://www.mobihealthnews.com/content/nhs-calls-inhealthcare-heart-patients-home-blood-tests",
-    image: "/static/images/AmeliorationDuService_DEV.png"
+    image: "/static/images/diagnostic.png"
   },
   {
     title: "Receptionist Robot",
@@ -95,7 +95,7 @@ export default [
     description: "\"CarePredict is an intelligent wearable that is able to predict and alert caretakers in senior homes when one of their patients is having issues...\"",
     date: "2017-11-07",
     link: "http://www.mobihealthnews.com/content/carepredict-roll-out-ai-wearable-based-monitoring-system-santa-fe-senior-care-center",
-    image: "/static/images/AmeliorationDuService_DEV.png"
+    image: "/static/images/diagnostic.png"
   },
   {
     title: "Brain Surgery Software",
@@ -116,14 +116,14 @@ export default [
     description: "\"A new, easy-to-use spectrometer that sends its images to be displayed on a smartphone...\"",
     date: "2017-11-09",
     link: "http://www.mobihealthnews.com/content/pencil-spectrometer-connects-smartphones-easy-imaging",
-    image: "/static/images/Prevention_DEV.png"
+    image: "/static/images/diagnostic.png"
   },
   {
     title: "Knee Surgery Recovery Assistant",
     description: "\"Claris Reflex is a wearable that permits direct communication from the knee prosthesis to the caregivers, through a tablet that also helps patients through their recovery...\"",
     date: "2017-11-08",
     link: "http://www.mobihealthnews.com/content/wearable-assists-home-recovery-after-total-knee-replacement-surgery",
-    image: "/static/images/AmeliorationDuService_DEV.png"
+    image: "/static/images/diagnostic.png"
   },
   {
     title: "Remote Sleep Disorder Monitoring",
@@ -207,6 +207,6 @@ export default [
     description: "\"An ultra-thin screen that can be patched to your skin, displays your pulse and transfers data to the cloud...\"",
     date: "2018-02-19",
     link: "http://www.lefigaro.fr/sciences/2018/02/19/01008-20180219ARTFIG00151-une-seconde-peau-connectee-inventee-au-japon.php",
-    image: "/static/images/AmeliorationDuService_DEV.png"
+    image: "/static/images/diagnostic.png"
   }
 ]

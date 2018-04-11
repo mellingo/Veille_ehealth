@@ -11,7 +11,7 @@
                         <p class="delimiter">{{ displayMonth(months[index]) }}</p>
                         <div class="article"
                            v-for="article in month">
-                            <a :href="article.link">
+                            <a :href="article.link" target="_blank">
                                 {{ article.title }}
                             </a>
                         </div>

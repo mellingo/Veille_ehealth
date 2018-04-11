@@ -6,7 +6,7 @@
           <img :src="content.image" alt="test" height="80%"/>
         </div>
         <div class="slide_inner_down">
-          <a :href="content.link" class="slide_title">{{content.title}}</a>
+          <a :href="content.link" class="slide_title" target="_blank">{{content.title}}</a>
           <p class="slide_description">{{content.description}}</p>
         </div>
       </div>
