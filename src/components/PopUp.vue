@@ -3,8 +3,8 @@
         <transition name="fade">
             <div class="overlay"
                  v-show="active">
-                <div class="container"
-                     :class="{ scrollable: !startText }">
+              <div :class="{ scrollable: !startText }">
+                <div class="container">
                     <div class="month"
                          v-for="(month, index) in articles"
                          v-if="!startText">
@@ -16,6 +16,24 @@
                             </a>
                         </div>
                     </div>
+                    <div class="sources white" v-if="!startText">
+                      <span class="semi-bold">Sources :</span>
+                      <a href="http://www.courrierdelouest.fr">http://www.courrierdelouest.fr</a>
+                      <a href="http://www.erenumerique.fr">http://www.erenumerique.fr</a>
+                      <a href="http://www.europe1.fr">http://www.europe1.fr</a>
+                      <a href="https://www.fiercebiotech.com/">https://www.fiercebiotech.com</a>
+                      <a href="https://www.franceinter.fr">https://www.franceinter.fr</a>
+                      <a href="https://www.futura-sciences.com">https://www.futura-sciences.com</a>
+                      <a href="https://globenewswire.com">https://globenewswire.com</a>
+                      <a href="https://itunes.apple.com">https://itunes.apple.com</a>
+                      <a href="http://www.lefigaro.fr">http://www.lefigaro.fr</a>
+                      <a href="https://medcitynews.com">https://medcitynews.com</a>
+                      <a href="http://www.mobihealthnews.com">http://www.mobihealthnews.com</a>
+                      <a href="https://www.objetconnecte.net">https://www.objetconnecte.net</a>
+                      <a href="https://www.prnewswire.com">https://www.prnewswire.com</a>
+                      <a href="https://www.sciencesetavenir.fr">https://www.sciencesetavenir.fr</a>
+                      <a href="http://www.wired.co.uk">http://www.wired.co.uk</a>
+                    </div>
                     <transition name="fade">
                       <div v-if="startText">
                         <p class="white container-spaced"><span class="title container-spaced">Welcome! Does connected health interest you? Are you wondering what the doctor or hospital of tomorrow will look like? This is a website for you that recents the innovations of today!</span><br>During 2017-2018, some diseases benefit from more active research and innovative solutions to assist the patient. Researchers are very insterested in Diabetes and patient’s datas. Today, there are few significant innovations in the field of connected health. However, small revolutions are at work on a daily basis to improve the patient's life. This period of discovery is promising and should intensify in the future. The creation of a university health degree at Paris Diderot has already opened and promises a bright future for connected health !</p>
@@ -25,6 +43,7 @@
                       </div>
                     </transition>
                 </div>
+              </div>
             </div>
         </transition>
           <div @click="active = !active" v-show="!startText">
@@ -81,6 +100,21 @@
 </script>
 
 <style scoped>
+  a, a:hover {
+    text-decoration: none;
+    color:#fff;
+    transition:all 0.3s ease;
+  }
+  a {
+    float: left;
+    clear: both;
+  }
+  a:hover {
+    opacity: 0.7;
+  }
+  .semi-bold {
+    font-weight: 600;
+  }
     .white {
         color: #fff;
     }
@@ -104,7 +138,7 @@
         left:0;
         top:0;
         width:100vw;
-        height:100vh;
+        min-height:100vh;
         background: #5FB195;
         display: flex;
         align-content: center;
@@ -112,13 +146,24 @@
         justify-content: center;
     }
     .container {
-        width: calc(100% + 20px);
         max-width: 720px;
-        max-height: calc(100vh - 40px);
+    }
+    .sources {
+      padding: 20px 0 40px 0;
+      text-align: left;
+      overflow: hidden;
+    }
+    .sources > span {
+      float: left;
+      clear: both;
     }
     .scrollable {
         overflow-y: scroll;
         overflow-x: hidden;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        max-height: 100vh;
     }
     .month {
         display: flex;
